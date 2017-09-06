@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="chatApp" ng-cloak>
+<head>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LeanIn Chat Demo</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/app.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+	<script src="https://use.fontawesome.com/ed19f3d9d6.js"></script>
+	
+	<script src="app.js"></script>
+	<script src="controllers/chat-controller.js"></script>
+	<script src="shared/services/chat-service.js"></script>	
+		
+</head>
+
+<body>  
+
+<div  ng-controller="chatController" >
+<div class="row nav" style="">
+	<div class="col-sm-6 col-md-6 ">
+		<div class="nav-right">
+		<i class="fa fa-user"></i> <span ng-bind="userInfo.name"/> <span ng-show="userInfo.nick">/</span><span ng-bind="userInfo.nick" />
+		</div>
+	</div>
+	<div class="col-sm-6 col-md-6" >
+		<div class="nav-left">
+		<input ng-model="filtereduser.nick" placeholder="search history" style="border: none;"></input><i class="fa fa-search"></i>
+		</div>
+	</div>
+	
+ </div>
+ <div class="row bottom-wrap" style="">
+    <!--top banner-->
+	<div id="usersList" class="col-md-4" >
+		<div ng-show="users.length>0">
+			<label>Existing Users </label>				
+			<div ng-repeat="user in users" >
+				<i class="fa fa-circle" ng-show="user.online" style="color:green;cursor:pointer;"> &nbsp  <a ng-click="onSingelUser(user.nick);">{{user.name}}({{user.nick}})</a> </i>
+				<i class="fa fa-circle" ng-hide="user.online" style="color:orange"> &nbsp  {{user.name}}({{user.nick}}) </i> <br/>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-6 chart-area">
+	<!-- User Name -->
+	<form ng-hide="isChat">
+	  <div id="" class="form-group">
+		<label for="">Enter User Name: </label>
+		<input type="text" id="" ng-model="userInfo.name"/>			
+		<button type="submit" ng-click="onUser();" >submit</button>	<br/>	
+		<label ng-bind="infoMsg"></label>
+	  </div>
+	</form>
+	
+	<!-- Chat -->
+	<form class="form-group" ng-show="isChat">
+	  <div id="" class="form-group">	
+		<label ng-disabled="" class="chatPanel">
+					
+		<div ng-repeat="message in messages | filter : filtereduser " >			
+			<span ng-show="message.nick">{{message.nick}}:</span>{{message.msg}}
+			<br/>
+		</div>
+	
+		</label>	
+		<form>	
+		<label ng-show="false"> Enter Nick Name before starting chat:</label>
+		<i class="fa fa-info-circle" style="color:blue;" title="use '/nick nickname' to change nickname at any time."></i>
+		<input type="text" id="" ng-model="message"/>	
+		<button type="submit" ng-click="onChat();">submit</button>
+		<label ng-bind="nickError"></label>
+		<i><i>
+		</form>	
+	  </div>
+	</form>	
+	</div>
+	<div class="col-md-2">
+	</div>
+ </div> 	
+</div>
+	
+</body>
+</html>
+

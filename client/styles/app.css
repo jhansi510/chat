@@ -1,0 +1,55 @@
+#usersList {
+padding: 20px;
+padding-bottom:50px;
+}
+
+.chat {
+height: 500px;
+border : 1px solid black;
+padding: 20px;
+}
+
+.chatPanel {
+height: 400px;
+border : 1px solid black;
+width: 100%;
+overflow-y: scroll;
+}
+
+.nav-left {
+	width: 200px;
+    background-color: #ffffff;
+    float: left;   
+    margin-top: 10px;
+	padding:0px;
+	margin-left:5px;	
+}
+
+.nav-right {   
+    color: #ffffff;
+    float: left;   
+    margin-top: 10px;
+}
+
+.nav {
+margin-top:30px;
+margin-left:30px;
+margin-right:30px;
+min-height:40px;
+background-color:#5D52AA;
+}
+
+.bottom-wrap {
+margin: 0px 30px 0px 30px;
+border: 3px solid #5D52AA;
+}
+
+#usersList {
+background-color: #F8F8F8;
+
+}
+
+.chart-area {
+margin-top:30px;
+}
+

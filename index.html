@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="mainApp" ng-cloak>
+<head>
+    <meta http-equiv="X_UA_Compatible" content="IE=edge"></meta>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+    <script src="app-controller.js"></script>
+</head>
+<body  >
+   <div
+    ng-controller="indexCtrl">
+         <p><a href="#/!">Main</a></p>
+
+        <a href="#!dash">City 1</a>
+        <a href="#!error">City 2</a>
+  
+        <form >
+                      Name:  <input type="text" ng-model="user.name">
+                      Password: <input type="text" ng-model="user.password">
+                      <button ng-click="onLogin();" >Submit</button>
+        </form>
+               {{user.name}}     
+   
+
+
+        <div class="ng-view"></div>  <!-- container for routing views -->
+
+
+    </div>  
+<script>
+       
+    </script>
+</body>
+</html>

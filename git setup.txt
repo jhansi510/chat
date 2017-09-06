@@ -1,0 +1,20 @@
+install git
+1. download git for windows 64 bit.
+2. set the environmental varilable like C:\Program Files\Git\cmd\git-gui.exe to path.
+3. Go to proj root folder (command line) & enter git init
+
+
+git clone url(https://github.com/jhansi510/chat)
+git status
+git add index.html
+git commit -m "comments"
+git push
+
+git pull
+
+git add -A (add all files new/edited)
+
+
+git -- shows all git commands
+
+git status --   your branch is up-to -date with origin/master
